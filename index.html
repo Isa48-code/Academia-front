@@ -8,7 +8,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏋️</text></svg>">
+    
+    <!-- Logo como favicon SVG -->
+    <link rel="icon" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>
+        <defs>
+            <linearGradient id='favGradient' x1='0%' y1='0%' x2='100%' y2='100%'>
+                <stop offset='0%' stop-color='%230a537d'/>
+                <stop offset='100%' stop-color='%23ff6b35'/>
+            </linearGradient>
+        </defs>
+        <circle cx='100' cy='100' r='85' fill='url(%23favGradient)' stroke='%23ffffff' stroke-width='4'/>
+        <path d='M70,100 L100,70 L130,100 L115,115 L100,100 L85,115 Z' fill='%23ffffff'/>
+        <path d='M100,130 L85,145 L115,145 Z' fill='%23ffffff'/>
+    </svg>" type="image/svg+xml">
 </head>
 <body>
     <div id="app">
@@ -17,6 +30,579 @@
             <p>Inicializando Academia Fit...</p>
         </div>
     </div>
+
+    <!-- Templates HTML para as páginas com imagens embutidas -->
+    <template id="template-login">
+        <div class="login-container">
+            <!-- Background pattern embutido -->
+            <div style="position: absolute; width: 100%; height: 100%; opacity: 0.1;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <defs>
+                        <pattern id="loginPattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                            <path d="M60 0L0 0 0 60" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#loginPattern)"/>
+                </svg>
+            </div>
+            
+            <div class="login-box">
+                <!-- Logo no header do login -->
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 200 200" style="display: block; margin: 0 auto 1rem;">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0a537d"/>
+                                <stop offset="100%" stop-color="#ff6b35"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="100" cy="100" r="85" fill="url(#logoGradient)" stroke="#ffffff" stroke-width="4"/>
+                        <path d="M70,100 L100,70 L130,100 L115,115 L100,100 L85,115 Z" fill="#ffffff"/>
+                        <path d="M100,130 L85,145 L115,145 Z" fill="#ffffff"/>
+                        <text x="100" y="165" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-size="18" font-weight="bold">FIT</text>
+                    </svg>
+                </div>
+                
+                <div class="login-header">
+                    <h1>Academia Fit</h1>
+                    <p>Sistema de Gerenciamento Completo</p>
+                </div>
+                
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" style="margin-right: 8px;">
+                            <path d="M11 7L9.6 8.4 12.2 11H2v2h10.2l-2.6 2.6L11 17l5-5-5-5zm9 12h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-8v2h8v14z"/>
+                        </svg>
+                        Entrar no Sistema
+                    </button>
+                </form>
+                
+                <div class="cadastro-link">
+                    <p>É um aluno? <a href="#" id="cadastroAlunoLink">Cadastre-se aqui</a></p>
+                </div>
+                
+                <div class="demo-credentials">
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; text-align: center; margin-top: 1rem;">
+                        <strong>Credenciais de demonstração:</strong><br>
+                        Admin: admin@academia.com / admin123<br>
+                        Instrutor: instrutor@academia.com / instrutor123<br>
+                        Aluno: aluno@academia.com / aluno123
+                    </p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Template para Dashboard Admin -->
+    <template id="template-dashboard-admin">
+        <div class="dashboard-container">
+            <header class="main-header">
+                <div class="header-content">
+                    <h1>
+                        <!-- Logo no header -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 200 200" style="vertical-align: middle; margin-right: 12px;">
+                            <defs>
+                                <linearGradient id="headerLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0a537d"/>
+                                    <stop offset="100%" stop-color="#ff6b35"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="100" cy="100" r="85" fill="url(#headerLogo)" stroke="#ffffff" stroke-width="4"/>
+                            <path d="M70,100 L100,70 L130,100 L115,115 L100,100 L85,115 Z" fill="#ffffff"/>
+                            <path d="M100,130 L85,145 L115,145 Z" fill="#ffffff"/>
+                        </svg>
+                        Academia Fit
+                    </h1>
+                    
+                    <div class="user-info">
+                        <div class="user-avatar admin">
+                            <!-- Avatar do admin -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="#dc3545" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                            </svg>
+                        </div>
+                        <span id="userName">Administrador</span>
+                        <span class="user-badge admin">ADMIN</span>
+                        <button class="btn btn-danger btn-sm" data-icon="sair" id="logoutBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white">
+                                <path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/>
+                            </svg>
+                            Sair
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <!-- Welcome Section com pattern -->
+                <section class="welcome-section" style="background-image: 
+                    url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22><defs><pattern id=%22dotsPattern%22 x=%220%22 y=%220%22 width=%2240%22 height=%2240%22 patternUnits=%22userSpaceOnUse%22><circle cx=%2220%22 cy=%2220%22 r=%222%22 fill=%22rgba(255,255,255,0.1)%22/><circle cx=%2240%22 cy=%2240%22 r=%222%22 fill=%22rgba(255,255,255,0.1)%22/></pattern></defs><rect width=%22100%25%22 height=%22100%25%22 fill=%22url(%23dotsPattern)%22/></svg>'),
+                    linear-gradient(135deg, var(--primary), var(--primary-light));">
+                    <h2>Bem-vindo, Administrador! 👋</h2>
+                    <p>Gerencie todos os aspectos da sua academia em um só lugar</p>
+                </section>
+
+                <!-- Quick Stats com ícones -->
+                <div class="quick-stats">
+                    <div class="stat-card alunos">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                <path fill="#0a537d" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalAlunos">0</h3>
+                            <p>Alunos Ativos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card instrutores">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                <path fill="#ff6b35" d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM8 10c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 8H4v-.89c0-1 .68-1.92 1.66-2.08 1.26-.21 2.36-.58 3.34-1.08.98.5 2.08.87 3.34 1.08 1 .16 1.66 1.08 1.66 2.08V18z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalInstrutores">0</h3>
+                            <p>Instrutores</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card treinos">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                <path fill="#28a745" d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalTreinos">0</h3>
+                            <p>Treinos Ativos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card avaliacoes">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                <path fill="#17a2b8" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 15.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalAvaliacoes">0</h3>
+                            <p>Avaliações</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Grid com ícones -->
+                <div class="action-grid">
+                    <div class="action-card" data-action="alunos">
+                        <div class="action-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                                <path fill="#0a537d" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <h3>Gerenciar Alunos</h3>
+                        <p>Cadastre, edite e visualize informações dos alunos</p>
+                    </div>
+                    
+                    <div class="action-card" data-action="instrutores">
+                        <div class="action-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                                <path fill="#ff6b35" d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM8 10c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 8H4v-.89c0-1 .68-1.92 1.66-2.08 1.26-.21 2.36-.58 3.34-1.08.98.5 2.08.87 3.34 1.08 1 .16 1.66 1.08 1.66 2.08V18z"/>
+                            </svg>
+                        </div>
+                        <h3>Gerenciar Instrutores</h3>
+                        <p>Administre a equipe de instrutores da academia</p>
+                    </div>
+                    
+                    <div class="action-card" data-action="treinos">
+                        <div class="action-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                                <path fill="#28a745" d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/>
+                            </svg>
+                        </div>
+                        <h3>Gerenciar Treinos</h3>
+                        <p>Crie e atribua treinos personalizados</p>
+                    </div>
+                    
+                    <div class="action-card" data-action="avaliacoes">
+                        <div class="action-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                                <path fill="#17a2b8" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 15.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+                            </svg>
+                        </div>
+                        <h3>Avaliações Físicas</h3>
+                        <p>Registre e acompanhe avaliações físicas</p>
+                    </div>
+                    
+                    <div class="action-card" data-action="relatorios">
+                        <div class="action-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                                <path fill="#6f42c1" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                            </svg>
+                        </div>
+                        <h3>Relatórios</h3>
+                        <p>Gere relatórios e análises da academia</p>
+                    </div>
+                    
+                    <div class="action-card" data-action="configuracoes">
+                        <div class="action-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                                <path fill="#6c757d" d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                            </svg>
+                        </div>
+                        <h3>Configurações</h3>
+                        <p>Configure as preferências do sistema</p>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Section -->
+                <section class="recent-activity">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 10px;">
+                            <path fill="#0a537d" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                        Atividade Recente
+                    </h3>
+                    <div class="activity-list" id="recentActivity">
+                        <!-- Atividades serão carregadas dinamicamente -->
+                    </div>
+                </section>
+            </main>
+        </div>
+    </template>
+
+    <!-- Template para Dashboard Instrutor -->
+    <template id="template-dashboard-instrutor">
+        <div class="dashboard-container">
+            <header class="main-header">
+                <div class="header-content">
+                    <h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 200 200" style="vertical-align: middle; margin-right: 12px;">
+                            <defs>
+                                <linearGradient id="headerLogoInstrutor" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0a537d"/>
+                                    <stop offset="100%" stop-color="#ff6b35"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="100" cy="100" r="85" fill="url(#headerLogoInstrutor)" stroke="#ffffff" stroke-width="4"/>
+                            <path d="M70,100 L100,70 L130,100 L115,115 L100,100 L85,115 Z" fill="#ffffff"/>
+                            <path d="M100,130 L85,145 L115,145 Z" fill="#ffffff"/>
+                        </svg>
+                        Academia Fit - Instrutor
+                    </h1>
+                    
+                    <div class="user-info">
+                        <div class="user-avatar instrutor">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="#ff6b35" d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM8 10c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 8H4v-.89c0-1 .68-1.92 1.66-2.08 1.26-.21 2.36-.58 3.34-1.08.98.5 2.08.87 3.34 1.08 1 .16 1.66 1.08 1.66 2.08V18z"/>
+                            </svg>
+                        </div>
+                        <span id="userNameInstrutor">Instrutor</span>
+                        <span class="user-badge instrutor">INSTRUTOR</span>
+                        <button class="btn btn-danger btn-sm" data-icon="sair" id="logoutBtnInstrutor">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white">
+                                <path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/>
+                            </svg>
+                            Sair
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <section class="welcome-section">
+                    <h2>Bem-vindo, Instrutor! 💪</h2>
+                    <p>Gerencie seus alunos e treinos de forma eficiente</p>
+                </section>
+
+                <!-- Stats específicos para instrutor -->
+                <div class="quick-stats">
+                    <div class="stat-card alunos">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                <path fill="#0a537d" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="meusAlunos">0</h3>
+                            <p>Meus Alunos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card treinos">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                <path fill="#28a745" d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="meusTreinos">0</h3>
+                            <p>Treinos Criados</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card avaliacoes">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                <path fill="#17a2b8" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 15.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="minhasAvaliacoes">0</h3>
+                            <p>Avaliações Realizadas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ações para instrutor -->
+                <div class="action-grid">
+                    <div class="action-card" data-action="alunos">
+                        <div class="action-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                                <path fill="#0a537d" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <h3>Meus Alunos</h3>
+                        <p>Visualize e gerencie seus alunos</p>
+                    </div>
+                    
+                    <div class="action-card" data-action="criar-treino">
+                        <div class="action-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                                <path fill="#28a745" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Criar Treino</h3>
+                        <p>Crie treinos personalizados para alunos</p>
+                    </div>
+                    
+                    <div class="action-card" data-action="avaliacoes">
+                        <div class="action-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                                <path fill="#17a2b8" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 15.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+                            </svg>
+                        </div>
+                        <h3>Avaliações</h3>
+                        <p>Realize avaliações físicas</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </template>
+
+    <!-- Template para Dashboard Aluno -->
+    <template id="template-dashboard-aluno">
+        <div class="dashboard-container">
+            <header class="main-header">
+                <div class="header-content">
+                    <h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 200 200" style="vertical-align: middle; margin-right: 12px;">
+                            <defs>
+                                <linearGradient id="headerLogoAluno" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0a537d"/>
+                                    <stop offset="100%" stop-color="#ff6b35"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="100" cy="100" r="85" fill="url(#headerLogoAluno)" stroke="#ffffff" stroke-width="4"/>
+                            <path d="M70,100 L100,70 L130,100 L115,115 L100,100 L85,115 Z" fill="#ffffff"/>
+                            <path d="M100,130 L85,145 L115,145 Z" fill="#ffffff"/>
+                        </svg>
+                        Academia Fit - Aluno
+                    </h1>
+                    
+                    <div class="user-info">
+                        <div class="user-avatar aluno">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="#0a537d" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <span id="userNameAluno">Aluno</span>
+                        <span class="user-badge aluno">ALUNO</span>
+                        <button class="btn btn-danger btn-sm" data-icon="sair" id="logoutBtnAluno">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white">
+                                <path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/>
+                            </svg>
+                            Sair
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <section class="welcome-section">
+                    <h2>Bem-vindo, Aluno! 🏃‍♂️</h2>
+                    <p>Acompanhe seu progresso e treinos</p>
+                </section>
+
+                <!-- Stats do aluno -->
+                <div class="quick-stats">
+                    <div class="stat-card treinos">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                <path fill="#28a745" d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="meuTreinoAtivo">1</h3>
+                            <p>Treino Ativo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card avaliacoes">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                <path fill="#17a2b8" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 15.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="minhasAvaliacoesAluno">0</h3>
+                            <p>Avaliações</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card progresso">
+                        <div class="stat-icon">
+                            <!-- Gráfico de progresso SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="#e9ecef" stroke-width="8"/>
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="#28a745" stroke-width="8" stroke-linecap="round"
+                                        stroke-dasharray="283" stroke-dashoffset="85" transform="rotate(-90 50 50)"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3>75%</h3>
+                            <p>Progresso</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informações do aluno -->
+                <div class="aluno-grid">
+                    <div class="info-card">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 8px;">
+                                <path fill="#0a537d" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                            Meus Dados
+                        </h3>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <strong>Plano:</strong>
+                                <span id="meuPlano" class="aluno-plano mensal">Mensal</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Vencimento:</strong>
+                                <span id="meuVencimento">10/12/2024</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Status:</strong>
+                                <span id="meuStatus" class="aluno-status ativo">Ativo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 8px;">
+                                <path fill="#28a745" d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/>
+                            </svg>
+                            Meu Treino
+                        </h3>
+                        <div id="meuTreinoInfo">
+                            <p>Carregando informações do treino...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 8px;">
+                                <path fill="#17a2b8" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 15.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+                            </svg>
+                            Minhas Avaliações
+                        </h3>
+                        <div id="minhasAvaliacoesInfo">
+                            <p>Nenhuma avaliação disponível</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </template>
+
+    <!-- Template para página de alunos -->
+    <template id="template-alunos">
+        <div class="page-container">
+            <div class="page-header">
+                <h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 12px;">
+                        <path fill="#0a537d" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                    Gerenciar Alunos
+                </h1>
+                <button class="btn btn-primary" data-icon="alunos" id="novoAlunoBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" style="margin-right: 8px;">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                    Novo Aluno
+                </button>
+            </div>
+            
+            <!-- Stats bar para alunos -->
+            <div class="stats-bar">
+                <div class="stat">
+                    <strong id="totalAlunosPage">0</strong>
+                    <span>Total de Alunos</span>
+                </div>
+                <div class="stat">
+                    <strong id="alunosAtivos">0</strong>
+                    <span>Alunos Ativos</span>
+                </div>
+                <div class="stat">
+                    <strong id="alunosNovos">0</strong>
+                    <span>Novos este mês</span>
+                </div>
+                <div class="stat">
+                    <strong id="taxaRenovacao">85%</strong>
+                    <span>Taxa de Renovação</span>
+                </div>
+            </div>
+            
+            <!-- Tabela de alunos -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Plano</th>
+                            <th>Status</th>
+                            <th>Vencimento</th>
+                            <th>Instrutor</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alunosList">
+                        <!-- Alunos serão carregados dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </template>
+
+    <!-- Adicione mais templates conforme necessário -->
+
+    <!-- Mensagens flutuantes -->
+    <div id="mensagemContainer"></div>
 
     <!-- Scripts -->
     <script src="js/config.js"></script>
@@ -28,7 +614,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🏋️ Academia Fit - Sistema de Gerenciamento');
+            console.log('🎨 Imagens SVG implementadas com sucesso!');
             window.academiaApp = new AcademiaApp();
+            
+            // Adicionar pattern de fundo dinâmico
+            document.body.style.backgroundImage = `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='bgPattern' x='0' y='0' width='100' height='100' patternUnits='userSpaceOnUse'><circle cx='20' cy='20' r='2' fill='rgba(255,255,255,0.05)'/><circle cx='50' cy='50' r='2' fill='rgba(255,255,255,0.05)'/><circle cx='80' cy='80' r='2' fill='rgba(255,255,255,0.05)'/></pattern></defs><rect width='100%25' height='100%25' fill='url(%23bgPattern)'/></svg>")`;
         });
     </script>
 </body>

@@ -1,35 +1,28 @@
-// Configurações do sistema
+// config.js - SEM MOCK
 const CONFIG = {
     APP: {
         NAME: 'Academia Fit',
-        VERSION: '1.0.0',
-        DESCRIPTION: 'Sistema Profissional de Gestão Acadêmica'
+        VERSION: '1.0.0'
     },
     API: {
         BASE_URL: 'http://localhost:8080/api',
-        MOCK_MODE: true, // Mudar para false quando backend estiver pronto
+        MOCK_MODE: false, // SEMPRE FALSE
         TIMEOUT: 10000
     },
     ENDPOINTS: {
-        // Autenticação
         AUTH: {
             LOGIN: '/auth/login',
-            REGISTER: '/auth/register',
-            LOGOUT: '/auth/logout',
-            REFRESH: '/auth/refresh'
+            REGISTER: '/auth/cadastro', // Pode ser diferente
+            LOGOUT: '/auth/logout'
         },
-        // Entidades principais
-        USUARIOS: '/usuarios',
         ALUNOS: '/alunos',
         INSTRUTORES: '/instrutores',
         TREINOS: '/treinos',
-        AVALIACOES: '/avaliacoes',
-        EXERCICIOS: '/exercicios'
+        AVALIACOES: '/avaliacoes'
     },
     STORAGE: {
         USER_KEY: 'academia_user',
-        TOKEN_KEY: 'academia_token',
-        AVALIACOES_KEY: 'academia_avaliacoes'
+        TOKEN_KEY: 'academia_token'
     }
 };
 
